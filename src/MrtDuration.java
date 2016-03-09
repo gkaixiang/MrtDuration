@@ -13,17 +13,21 @@ public class MrtDuration {
 	private static final String MESSAGE_TIME_TAKEN = "Time taken to travel from %s to %s is %s minutes. \n";
 	private static final String MESSAGE_WELCOME = "Welcome to Mrt Duration Checker! Key in the two mrt stations to check total travel time on the train!\n";
 	
-	public static StationInfo[] EWLine = new StationInfo[ARRAY_SIZE];
-	public static String EWLineInfo = "stationinfo.txt";
+	public static StationInfo[] stationInfo = new StationInfo[ARRAY_SIZE];
+	public static String stationInfoTxtFile = "stationinfo.txt";
 	public static String temp;
 	public static String arrayTemp[] = new String[ARRAY_SIZE];
 	public static String currentLocation;
 	public static String currentLocationName;
-	public static String currentLocationCode;
+	public static String currentLocationCode1;
+	public static String currentLocationCode2;
+	public static String currentLocationCode3;
 	public static int currentLocationToEndOfLine;
 	public static String destination;
 	public static String destinationName;
-	public static String destinationCode;
+	public static String destinationCode1;
+	public static String destinationCode2;
+	public static String destinationCode3;
 	public static int destinationToEndOfLine;
 	
 	public static void main(String[] args) throws FileNotFoundException{
@@ -36,20 +40,31 @@ public class MrtDuration {
 	private static void readInputAndProcess() {
 		readInput();
 		
-		for(int i=0; i<EWLine.length; i++){
-			if(EWLine[i].getStationName().contains(currentLocation)){
+		//check if on same line
+		
+		for(int i=0; i<stationInfo.length; i++){
+			if(stationInfo[i].getStationName().contains(currentLocation)){
 				//printMessage(EWLine[i].getStationName() + " successfully located in array\n");
-				currentLocationCode = EWLine[i].getStationCode1();
-				currentLocationToEndOfLine = EWLine[i].getTimeFromFirstStation1();
-				currentLocationName = EWLine[i].getStationName();
+				currentLocationCode1 = stationInfo[i].getStationCode1();
+				currentLocationCode2 = stationInfo[i].getStationCode2();
+				currentLocationCode3 = stationInfo[i].getStationCode3();
+				currentLocationToEndOfLine = stationInfo[i].getTimeFromFirstStation1();
+				currentLocationName = stationInfo[i].getStationName();
 			}
-			if(EWLine[i].getStationName().contains(destination)){
+			if(stationInfo[i].getStationName().contains(destination)){
 				//printMessage(EWLine[i].getStationName() + " successfully located in array\n");
-				destinationCode = EWLine[i].getStationCode1();
-				destinationToEndOfLine = EWLine[i].getTimeFromFirstStation1();
-				destinationName = EWLine[i].getStationName();
+				destinationCode1 = stationInfo[i].getStationCode1();
+				destinationCode2 = stationInfo[i].getStationCode2();
+				destinationCode3 = stationInfo[i].getStationCode3();
+				destinationToEndOfLine = stationInfo[i].getTimeFromFirstStation1();
+				destinationName = stationInfo[i].getStationName();
 			}
 		}
+		
+		
+		//if same line, check time taken to travel direct to destination on this line only
+		//check for interchange in between, if there is, change at the interchange and call this function again
+		
 		
 		int result = destinationToEndOfLine - currentLocationToEndOfLine;
 		if(result>0){printMessage(String.format(MESSAGE_TIME_TAKEN, currentLocationName, destinationName, result));}
@@ -77,7 +92,7 @@ public class MrtDuration {
 
 	private static void initializeEWLine() throws FileNotFoundException {
 		initilizeEWLineArray();
-		BufferedReader br = new BufferedReader(new FileReader(EWLineInfo)); //Read EW Line Info
+		BufferedReader br = new BufferedReader(new FileReader(stationInfoTxtFile)); //Read EW Line Info
 		CopyEWLineInfo(br);
 	}
 
@@ -95,20 +110,20 @@ public class MrtDuration {
 				printMessage("\n");
 				*/
 				
-				if(EWLine[j] != null){
-				EWLine[j].setStationName(arrayTemp[0]);
-				EWLine[j].setNumOfLines(Integer.parseInt(arrayTemp[1]));
-				EWLine[j].setStationCode1(arrayTemp[2]);
-				EWLine[j].setTimeFromFirstStation1(Integer.parseInt(arrayTemp[3]));
+				if(stationInfo[j] != null){
+				stationInfo[j].setStationName(arrayTemp[0]);
+				stationInfo[j].setNumOfLines(Integer.parseInt(arrayTemp[1]));
+				stationInfo[j].setStationCode1(arrayTemp[2]);
+				stationInfo[j].setTimeFromFirstStation1(Integer.parseInt(arrayTemp[3]));
 				//System.out.println(EWLine[j].getStationName() + "1 read successfully!");
 				if(arrayTemp.length > 4){
-				EWLine[j].setStationCode2(arrayTemp[4]);
-				EWLine[j].setTimeFromFirstStation2(Integer.parseInt(arrayTemp[5]));
+				stationInfo[j].setStationCode2(arrayTemp[4]);
+				stationInfo[j].setTimeFromFirstStation2(Integer.parseInt(arrayTemp[5]));
 				//System.out.println(EWLine[j].getStationName() + "2 read successfully!");
 				}
 				if(arrayTemp.length > 6){
-				EWLine[j].setStationCode3(arrayTemp[6]);
-				EWLine[j].setTimeFromFirstStation3(Integer.parseInt(arrayTemp[7]));
+				stationInfo[j].setStationCode3(arrayTemp[6]);
+				stationInfo[j].setTimeFromFirstStation3(Integer.parseInt(arrayTemp[7]));
 				//System.out.println(EWLine[j].getStationName() + "3 read successfully!");
 				}
 				}
@@ -122,7 +137,7 @@ public class MrtDuration {
 	private static void initilizeEWLineArray() {
 		for(int i = 0; i < ARRAY_SIZE ; i++)
 		{
-		    EWLine[i] = new StationInfo();
+		    stationInfo[i] = new StationInfo();
 		}
 	}
 	

@@ -6,7 +6,7 @@ chinese garden mrt~1~EW25~54
 jurong east mrt~2~EW24~52~NS1~0
 clementi mrt~1~EW23~47
 dover mrt~1~EW22~45
-buona vista mrt~2~EW21~43~CC22~0
+buona vista mrt~2~EW21~43~CC22~48
 commonwealth mrt~1~EW20~41
 queenstown mrt~1~EW19~39
 redhill mrt~1~EW18~37
@@ -19,7 +19,7 @@ bugis mrt~2~EW12~25~DT14~0
 lavender mrt~1~EW11~23
 kallang mrt~1~EW10~21
 aljunied mrt~1~EW9~19
-paya lebar mrt~2~EW8~17~CC9~0
+paya lebar mrt~2~EW8~17~CC9~18
 eunos mrt~1~EW7~15
 kembangan mrt~1~EW6~13
 bedok mrt~1~EW5~11
