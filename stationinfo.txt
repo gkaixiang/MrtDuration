@@ -1,0 +1,29 @@
+joo koon mrt~1~EW29~64
+pioneer mrt~1~EW28~60
+boon lay mrt~1~EW27~58
+lakeside mrt~1~EW26~56
+chinese garden mrt~1~EW25~54
+jurong east mrt~2~EW24~52~NS1~0
+clementi mrt~1~EW23~47
+dover mrt~1~EW22~45
+buona vista mrt~2~EW21~43~CC22~0
+commonwealth mrt~1~EW20~41
+queenstown mrt~1~EW19~39
+redhill mrt~1~EW18~37
+tiong bahru mrt~1~EW17~35
+outram park mrt~2~EW16~33~NE3~0
+tanjong pagar mrt~1~EW15~31
+raffles place mrt~2~EW14~29~NS26~0
+city hall mrt~2~EW13~27~NS25~0
+bugis mrt~2~EW12~25~DT14~0
+lavender mrt~1~EW11~23
+kallang mrt~1~EW10~21
+aljunied mrt~1~EW9~19
+paya lebar mrt~2~EW8~17~CC9~0
+eunos mrt~1~EW7~15
+kembangan mrt~1~EW6~13
+bedok mrt~1~EW5~11
+tanah merah mrt~2~EW4~8
+simei mrt~1~EW3~5
+tampines mrt~1~EW2~3
+pasir ris mrt~1~EW1~0
